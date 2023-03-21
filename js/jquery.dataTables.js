@@ -3973,6 +3973,9 @@
 					tokenApp.tokenFailedCloseWindows();	
 				});
 			}
+			else{
+				alert(xhr.responseJSON.reMsg);
+			}
 		}
 		//Collabra Custom End *****************************************************************************************************//
 		

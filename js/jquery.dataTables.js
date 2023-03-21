@@ -3962,11 +3962,15 @@
 					}
 				})
 				.catch(function(xhr, status, error){
+					/*
 					if(xhr.status == 401 && xhr.responseJSON && xhr.responseJSON.reCode === "90") {
 						alert(xhr.responseJSON.reMsg);
 						parent.location.href = myCommon_config.loginPage;
 					}
 					else{ alert(xhr.responseJSON.reMsg); }
+					*/
+					alert(xhr.responseJSON.reMsg);
+					tokenApp.tokenFailedCloseWindows();	
 				});
 			}
 		}

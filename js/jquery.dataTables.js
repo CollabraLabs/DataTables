@@ -3951,32 +3951,8 @@
 		var ajax = oSettings.ajax;
 		
 		//Collabra Custom Start *****************************************************************************************************//
-		ajax.beforeSend = function(xhr) { xhr.setRequestHeader('Authorization', "Bearer " + tokenApp.getToken()); }
-		ajax.error = async function(xhr){
-			if(xhr.status == 401 && xhr.responseJSON && xhr.responseJSON.reCode === "80") {
-				await tokenApp.reTeken()
-				.then(function(token){
-					if(token && token.reSetToken) {
-						localStorage.setItem("collabrAccessToken", token.token);
-						__reload(oSettings, false, null);
-					}
-				})
-				.catch(function(xhr, status, error){
-					/*
-					if(xhr.status == 401 && xhr.responseJSON && xhr.responseJSON.reCode === "90") {
-						alert(xhr.responseJSON.reMsg);
-						parent.location.href = myCommon_config.loginPage;
-					}
-					else{ alert(xhr.responseJSON.reMsg); }
-					*/
-					alert(xhr.responseJSON.reMsg);
-					tokenApp.tokenFailedCloseWindows();	
-				});
-			}
-			else{
-				alert(xhr.responseJSON.reMsg);
-			}
-		}
+		ajax.beforeSend = gridApp.ajax.beforeSend;
+		ajax.error = gridApp.ajax.error;
 		//Collabra Custom End *****************************************************************************************************//
 		
 		var instance = oSettings.oInstance;

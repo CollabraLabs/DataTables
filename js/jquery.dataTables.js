@@ -11740,7 +11740,7 @@
 			 *      } );
 			 *    } );
 			 */
-			"sEmptyTable": "No data available in table",
+			"sEmptyTable": "검색 결과가 없습니다.",
 	
 	
 			/**
